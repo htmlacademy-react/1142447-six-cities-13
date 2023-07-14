@@ -1,0 +1,26 @@
+.noplaces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 100px;
+}
+
+.noplaces__title {
+  font-size: 60px;
+  margin: 0;
+}
+
+.noplaces__desk {
+  font-size: 26px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.noplaces__link {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: rgb(68, 129, 195);
+  color: #ffffff;
+  font-weight: bold;
+}
