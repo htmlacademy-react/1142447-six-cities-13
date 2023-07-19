@@ -1,54 +1,33 @@
-import PlaceCard from '../../components/place-card/place-card';
-
 import NavigationItem from '../../components/ui/navigation-item/navigation-item';
 import { AppRoute } from '../../components/const';
-import Logo from '../../components/ui/logo/logo';
+
+import Header from '../../components/header/header';
+import { OfferType } from '../../types/offer-type';
+import PlaceList from '../../components/place-list/place-list';
 
 type PageMainProps = {
   offersCount: number;
+  offers: OfferType[];
 }
 
-//const PageMain = ({offersCount} : PageMainProps): JSX.Element => (
-const PageMain = ({ offersCount }: PageMainProps): JSX.Element => (
+const PageMain = ({ offersCount, offers }: PageMainProps): JSX.Element => (
   <div className="page page--gray page--main">
-    <header className="header">
-      <div className="container">
-        <div className="header__wrapper">
-          <div className="header__left">
-            <Logo isActive />
-          </div>
-          <nav className="header__nav">
-            <ul className="header__nav-list">
-              <li className="header__nav-item user">
-                <a className="header__nav-link header__nav-link--profile" href="#">
-                  <div className="header__avatar-wrapper user__avatar-wrapper">
-                  </div>
-                  <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  <span className="header__favorite-count">3</span>
-                </a>
-              </li>
-              <li className="header__nav-item">
-                <a className="header__nav-link" href="#">
-                  <span className="header__signout">Sign out</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+
+    <Header isAuthorization/>
 
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            <NavigationItem nameCity='Paris' path = {AppRoute.PageNotFound} isActive />
-            <NavigationItem nameCity='Cologne' path = {AppRoute.PageNotFound} isActive = {false}/>
-            <NavigationItem nameCity='Brussels' path = {AppRoute.PageNotFound} isActive = {false}/>
-            <NavigationItem nameCity='Amsterdam' path = {AppRoute.PageNotFound} isActive = {false}/>
-            <NavigationItem nameCity='Hamburg' path = {AppRoute.PageNotFound} isActive = {false}/>
-            <NavigationItem nameCity='Dusseldorf' path = {AppRoute.PageNotFound} isActive = {false}/>
+
+            <NavigationItem title='Paris' path = {AppRoute.PageNotFound} isActive />
+            <NavigationItem title='Cologne' path = {AppRoute.PageNotFound} />
+            <NavigationItem title='Brussels' path = {AppRoute.PageNotFound} />
+            <NavigationItem title='Amsterdam' path = {AppRoute.PageNotFound} />
+            <NavigationItem title='Hamburg' path = {AppRoute.PageNotFound} />
+            <NavigationItem title='Dusseldorf' path = {AppRoute.PageNotFound} />
+
           </ul>
         </section>
       </div>
@@ -56,7 +35,9 @@ const PageMain = ({ offersCount }: PageMainProps): JSX.Element => (
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+
+            <b className="places__found">{offersCount} places to stay in {offers[0].city.name}</b>
+
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex={0}>
@@ -73,11 +54,9 @@ const PageMain = ({ offersCount }: PageMainProps): JSX.Element => (
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              <PlaceCard />
-              <PlaceCard />
-              <PlaceCard />
-              <PlaceCard />
-              <PlaceCard />
+
+              <PlaceList offers = {offers} />
+
             </div>
           </section>
           <div className="cities__right-section">
