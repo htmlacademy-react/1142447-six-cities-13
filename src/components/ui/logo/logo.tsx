@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 
 type LogoProps = {
-  isActive: boolean;
+ isActive ? : boolean;
 }
 
 const Logo = ({ isActive }: LogoProps): JSX.Element => (

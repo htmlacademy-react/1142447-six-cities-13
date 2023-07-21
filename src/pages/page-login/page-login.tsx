@@ -6,7 +6,9 @@ const PageLogin = (): JSX.Element => (
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <Logo isActive = {false}/>
+
+            <Logo />
+
           </div>
         </div>
       </div>
