@@ -10,13 +10,10 @@ import Map from '../../components/map/map';
 type PageMainProps = {
   offers: OfferType[];
 }
-
 const cityDefault = 'Paris';
-
 const PageMain = ({ offers }: PageMainProps): JSX.Element => {
   const [currentCity, setCurrentCity] = useState(cityDefault);
   const [activeCard, setActiveCard] = useState<Nullable<OfferType>>(null);
-
   const handlerMenuItem = (title: string) => {
     setCurrentCity(title);
   };

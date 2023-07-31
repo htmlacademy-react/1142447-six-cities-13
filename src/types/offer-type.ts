@@ -10,20 +10,24 @@ export type OfferType = {
   isPremium: boolean;
   rating: number;
 };
+
 export type City = {
   name: string;
   location: Location;
 };
+
 export type Location = {
   latitude: number;
   longitude: number;
   zoom: number;
 };
+
 export type OfferCommentType = {
   id: string;
   idOffer: string;
   comments: Comment[];
 };
+
 export type Comment = {
   id: string;
   comment: string;
@@ -31,10 +35,9 @@ export type Comment = {
   rating: number;
   user: User;
 }
+
 export type User = {
   name: string;
   avatarUrl: string;
   isPro: boolean;
 }
-
-export type Nullable<T> = T | null;

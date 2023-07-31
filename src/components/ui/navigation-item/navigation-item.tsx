@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import cn from 'classnames';
 
 type NavLinkProps = {
   title: string;
@@ -13,10 +12,8 @@ const NavigationItem = (props: NavLinkProps): JSX.Element => {
   return (
     <li className="locations__item">
       <NavLink to={path}
-        className={cn(
-          'locations__item-link tabs__item',
-          { 'tabs__item--active': currentCity === title }
-        )}
+        className={() =>
+          currentCity === title ? 'locations__item-link tabs__item tabs__item--active' : 'locations__item-link tabs__item'}
         onClick={() => handlerLinkItem(title)}
       >
         {title}
