@@ -1,21 +1,33 @@
 import { useEffect, useState, MutableRefObject, useRef } from 'react';
 import { Map, TileLayer } from 'leaflet';
-import { OfferType } from '../../types/offer-type';
+//import { OfferType } from '../../types/offer-type';
 
-const useMap = (mapRef: MutableRefObject<HTMLElement | null>, currentOffers: OfferType[]): Map | null => {
+import { Location } from '../../types/offer-type';
+
+
+//const useMap = (mapRef: MutableRefObject<HTMLElement | null>, currentOffers: OfferType[]): Map | null => {
+
+const useMap = (mapRef: MutableRefObject<HTMLElement | null>, center : Location): Map | null => {
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
-  const location = currentOffers[0].city.location;
+  //const location = currentOffers[0].city.location;
 
   useEffect(() => {
 
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = new Map(mapRef.current, {
         center: {
-          lat: location.latitude,
-          lng: location.longitude
+
+          lat: center.latitude,
+          lng: center.longitude
+
+          // lat: location.latitude,
+          // lng: location.longitude
         },
-        zoom: location.zoom,
+
+        zoom: center.zoom,
+
+        //zoom: location.zoom,
       });
 
       const layer = new TileLayer(
@@ -30,7 +42,11 @@ const useMap = (mapRef: MutableRefObject<HTMLElement | null>, currentOffers: Off
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, location]);
+
+    map?.setView([center.latitude, center.longitude], center.zoom);
+  }, [mapRef, center, map]);
+
+  //}, [mapRef, location]);
 
   return map;
 };

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import NavigationItem from '../../components/ui/navigation-item/navigation-item';
 import { AppRoute } from '../../components/const';
 import Header from '../../components/header/header';
-import { OfferType } from '../../types/offer-type';
+import { OfferType, Location, Nullable } from '../../types/offer-type';
 import PlaceList from '../../components/place-list/place-list';
 import { Cities } from '../../components/const';
 import Map from '../../components/map/map';
@@ -15,11 +15,13 @@ const cityDefault = 'Paris';
 
 const PageMain = ({ offers }: PageMainProps): JSX.Element => {
   const [currentCity, setCurrentCity] = useState(cityDefault);
+  const [activeCard, setActiveCard] = useState<Nullable<OfferType>>(null);
 
   const handlerMenuItem = (title: string) => {
     setCurrentCity(title);
   };
   const currentCityOffers = offers.filter((offer) => offer.city.name === currentCity);
+  const centerLocation : Location = currentCityOffers[0].city.location;
   return (
     <div className="page page--gray page--main">
       <Header isAuthorization />
@@ -37,17 +39,13 @@ const PageMain = ({ offers }: PageMainProps): JSX.Element => {
                 />
               ))}
             </ul>
-
           </section>
-
         </div>
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-
-              <b className="places__found">{offers.length} places to stay in {offers[0].city.name}</b>
-
+              <b className="places__found">{currentCityOffers.length} places to stay in {currentCity}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -64,22 +62,18 @@ const PageMain = ({ offers }: PageMainProps): JSX.Element => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <PlaceList offers={currentCityOffers} />
+                <PlaceList offers={currentCityOffers} setActiveCard = {setActiveCard} />
               </div>
             </section>
             <div className="cities__right-section">
-
               <section className="cities__map map" >
-
-                <Map currentOffers={currentCityOffers} />
-
+                <Map currentOffers={currentCityOffers} center= {centerLocation} activeCardId = {activeCard?.id} />
               </section>
             </div>
           </div>
         </div>
       </main>
     </div>
-
   );
 };
 

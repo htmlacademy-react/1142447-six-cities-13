@@ -14,7 +14,6 @@ const FavoriteList = ({ offers }: FavoriteListProps): JSX.Element => {
   return (
     <ul className="favorites__list">
       {Object.keys(Cities).map((city) => (
-
         favoritesList.some((item) => item.city.name.toLowerCase() === city.toLowerCase()) &&
 <li className="favorites__locations-items" key={city}>
   <div className="favorites__locations locations locations--current">
@@ -23,7 +22,6 @@ const FavoriteList = ({ offers }: FavoriteListProps): JSX.Element => {
         <span>{city}</span>
       </a>
     </div>
-
   </div>
   <div className="favorites__places">
     {getFavOffersCity(city).map((item) => (
