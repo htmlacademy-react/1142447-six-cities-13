@@ -4,35 +4,37 @@ export type OfferType = {
   type: string;
   price: number;
   previewImage: string;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: City;
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
 };
-
-export type CommentType = {
-  idOffer: string;
-  comments: Array<{
-    id: string;
-    comment: string;
-    date: string;
-    rating: number;
-    user: {
-      name: string;
-      avatarUrl: string;
-      isPro: boolean;
-    };
-  }>;
+export type City = {
+  name: string;
+  location: Location;
 };
+export type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+};
+export type OfferCommentType = {
+  id: string;
+  idOffer: string;
+  comments: Comment[];
+};
+export type Comment = {
+  id: string;
+  comment: string;
+  date: string;
+  rating: number;
+  user: User;
+}
+export type User = {
+  name: string;
+  avatarUrl: string;
+  isPro: boolean;
+}
+
+export type Nullable<T> = T | null;
