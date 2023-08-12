@@ -3,7 +3,6 @@ import Header from '../../components/header/header';
 
 const Offer = (): JSX.Element => (
   <div className="page">
-
     <Header isAuthorization />
     <main className="page__main page__main--offer">
       <section className="offer">
@@ -150,16 +149,13 @@ const Offer = (): JSX.Element => (
                   </div>
                 </li>
               </ul>
-
               <CommentForm />
-
             </section>
           </div>
         </div>
         <section className="offer__map map"></section>
       </section>
       <div className="container">
-
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
@@ -175,7 +171,6 @@ const Offer = (): JSX.Element => (
                     <b className="place-card__price-value">€80</b>
                     <span className="place-card__price-text">/&nbsp;night</span>
                   </div>
-
                   <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
                     <svg className="place-card__bookmark-icon" width="18" height="19">
                       <use xlinkHref="#icon-bookmark"></use>
@@ -192,11 +187,9 @@ const Offer = (): JSX.Element => (
                 <h2 className="place-card__name">
                   <a href="#">Wood and stone place</a>
                 </h2>
-
                 <p className="place-card__type">Private room</p>
               </div>
             </article>
-
             <article className="near-places__card place-card">
               <div className="near-places__image-wrapper place-card__image-wrapper">
                 <a href="#">
@@ -218,9 +211,7 @@ const Offer = (): JSX.Element => (
                 </div>
                 <div className="place-card__rating rating">
                   <div className="place-card__stars rating__stars">
-
                     <span style={{ width: '80%' }}></span>
-
                     <span className="visually-hidden">Rating</span>
                   </div>
                 </div>
@@ -230,7 +221,6 @@ const Offer = (): JSX.Element => (
                 <p className="place-card__type">Apartment</p>
               </div>
             </article>
-
             <article className="near-places__card place-card">
               <div className="place-card__mark">
                 <span>Premium</span>
@@ -255,9 +245,7 @@ const Offer = (): JSX.Element => (
                 </div>
                 <div className="place-card__rating rating">
                   <div className="place-card__stars rating__stars">
-
                     <span style={{ width: '100%' }}></span>
-
                     <span className="visually-hidden">Rating</span>
                   </div>
                 </div>
