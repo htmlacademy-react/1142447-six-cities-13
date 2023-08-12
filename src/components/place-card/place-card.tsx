@@ -49,9 +49,10 @@ const PlaceCard = ({ data }: PlaceCardProps): JSX.Element => {
           <Link to="/offer">{data.title}</Link>
         </h2>
         <p className="place-card__type">{data.type}</p>
-
       </div>
     </article>
   );
 };
+
+
 export default PlaceCard;

@@ -3,7 +3,6 @@ import Header from '../../components/header/header';
 
 const Offer = (): JSX.Element => (
   <div className="page">
-
     <Header isAuthorization />
     <main className="page__main page__main--offer">
       <section className="offer">
