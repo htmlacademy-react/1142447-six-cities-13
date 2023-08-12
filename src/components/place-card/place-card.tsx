@@ -1,6 +1,6 @@
 import { OfferType, Nullable } from '../../types/offer-type';
 import { Link } from 'react-router-dom';
-import { FIVE_STARS } from '../const';
+import { AppRoute, FIVE_STARS } from '../const';
 import cn from 'classnames';
 
 type PlaceCardProps = {
@@ -10,7 +10,7 @@ type PlaceCardProps = {
 
 const PlaceCard = ({ data, setActiveCard }: PlaceCardProps): JSX.Element => {
 
-  const { isPremium, isFavorite, previewImage, rating, title } = data;
+  const { isPremium, isFavorite, previewImage, rating, title, id, price } = data;
   const euro = String.fromCodePoint(0x020AC);
 
   const offerDetailRef = `${AppRoute.Offer}/${id}`;
