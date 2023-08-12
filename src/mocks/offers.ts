@@ -3,7 +3,7 @@ import { OfferType } from '../types/offer-type';
 export const offers: OfferType[] = [
   {
     id: '2f0f1823-f620-43f5-91f9-530386ab335b',
-    title: 'Beautiful & luxurious apartment at great location',
+    title: 'Nice, cozy, warm big bed apartment',
     type: 'house',
     price: 716,
     previewImage: 'https://13.design.pages.academy/static/hotel/4.jpg',
@@ -25,8 +25,8 @@ export const offers: OfferType[] = [
     rating: 3.5,
   },
   {
-    id: '39a1d17c-aafe-4d86-9a8b-d4353094b227',
-    title: 'Canal View Prinsengracht',
+    id: '0fd2fff4-cba8-457a-9aa9-20a4112359b5',
+    title: 'Perfectly located Castro',
     type: 'apartment',
     price: 177,
     previewImage: 'https://13.design.pages.academy/static/hotel/15.jpg',
@@ -48,8 +48,8 @@ export const offers: OfferType[] = [
     rating: 2,
   },
   {
-    id: 'fb3c6a5c-399f-41cb-8c01-93e32e9368b2',
-    title: 'Tile House',
+    id: 'e1e84192-8fb2-4af2-a565-f87191ad1da9',
+    title: 'Loft Studio in the Central Area',
     type: 'house',
     price: 107,
     previewImage: 'https://13.design.pages.academy/static/hotel/12.jpg',
@@ -71,8 +71,8 @@ export const offers: OfferType[] = [
     rating: 4,
   },
   {
-    id: 'c1a075e5-6704-4bef-bc4d-7a85c1037ae9',
-    title: 'House in countryside',
+    id: 'c660399d-1995-40a6-a81c-5e907883e9ba',
+    title: 'Canal View Prinsengracht',
     type: 'hotel',
     price: 327,
     previewImage: 'https://13.design.pages.academy/static/hotel/3.jpg',
