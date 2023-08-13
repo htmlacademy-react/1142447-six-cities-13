@@ -30,7 +30,6 @@ const Map = (props: MapProps): JSX.Element => {
 
 
   const mapRef = useRef(null);
-
   const map = useMap(mapRef, center);
 
   useEffect(() => {
@@ -41,7 +40,6 @@ const Map = (props: MapProps): JSX.Element => {
           lat: offer.location.latitude,
           lng: offer.location.longitude,
         });
-        marker.setIcon(defaultCustomIcon).addTo(markerLayer);
         marker.setIcon(offer.id === activeCardId ? currentCustomIcon : defaultCustomIcon).addTo(markerLayer);
       });
       return () => {
